@@ -1,0 +1,11 @@
+{
+  "name": "app",
+  "scripts": {
+    "dev": "vite"
+  },
+  "license": "ISC",
+  "packageManager": "pnpm@10.10.0",
+  "dependencies": {
+    "vite": "^6.3.5"
+  }
+}
