@@ -48,6 +48,24 @@ app.put('/foo', cors(), (req, res) => {
 })``
 ```
 
+当服务器向上面这样处理后，发送跨域请求时options请求就会拉到如下的响应头
+
+```js
+fetch('http://localhost:3000/foo', {
+  method: 'put',
+  // 复杂请求，当跨域时，浏览器会自动发送一个options请求
+  headers: {
+    fx: 'xxxx',
+  },
+})
+```
+
+![Image](https://github.com/user-attachments/assets/d620d142-9f0a-4bef-a31e-935475e65133)
+
+并且真正的请求也能够正常访问了
+
+![Image](https://github.com/user-attachments/assets/e511c443-008a-4fe7-8471-8e67cf09dd09)
+
 ### 反向代理
 
 这也是一种方案用于解决cors，本质是通过服务器去访问领一个源的请求，从而避免了cors，因为cors只在浏览器才会发生，如果是服务器去访问另一个服务器的请求是能够正常访问的，不存在cors
