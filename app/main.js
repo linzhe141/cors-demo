@@ -13,7 +13,10 @@ btn1.addEventListener('click', async () => {
       headers: {
         fx: 'xxxx',
       },
+      // HTTP 跨源请求携带凭据
+      credentials: 'include',
     })
+    debugger
     const text = await res.text()
     wrapper.innerHTML = text
   } catch (e) {
